@@ -91,7 +91,7 @@
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.8.1</version>
+        <version>2.9.10.1</version>
     </dependency>
 
 <!--    &lt;!&ndash; Jakarta Taglibs是为JSP定制标签库和相关的项目提供的一个开源仓库，如TagLibraryValidator类，和对页面生成工具的扩展来支持标签库。 &ndash;&gt;-->
