@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>exam-parent</artifactId>
+        <groupId>com.nf</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>exam-controller</artifactId>
+    <packaging>war</packaging>
+<dependencies>
+    <dependency>
+        <groupId>com.nf</groupId>
+        <artifactId>exam-service</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <!-- Spring Start -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-jdbc</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+
+    </dependency>
+
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+    </dependency>
+    <!-- MyBatis End -->
+
+    <!-- FreeMarker是一款模板引擎 -->
+    <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+    <dependency>
+        <groupId>org.freemarker</groupId>
+        <artifactId>freemarker</artifactId>
+        <version>2.3.28</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>3.2.4.RELEASE</version>
+    </dependency>
+
+<!--切面通知-->
+    <dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+
+    <!-- SpringMVC转换JSON数据使用 -->
+    <dependency>
+        <groupId>org.codehaus.jackson</groupId>
+        <artifactId>jackson-mapper-asl</artifactId>
+        <version>1.9.13</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.8.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.8.1</version>
+    </dependency>
+
+<!--    &lt;!&ndash; Jakarta Taglibs是为JSP定制标签库和相关的项目提供的一个开源仓库，如TagLibraryValidator类，和对页面生成工具的扩展来支持标签库。 &ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>org.apache.taglibs</groupId>-->
+<!--        <artifactId>taglibs-standard-impl</artifactId>-->
+<!--        <version>1.2.5</version>-->
+<!--    </dependency>-->
+
+<!--    &lt;!&ndash; 格式化对象，方便输出日志 阿里巴巴将对象转换成json &ndash;&gt;-->
+<!--    <dependency>-->
+<!--        <groupId>com.alibaba</groupId>-->
+<!--        <artifactId>fastjson</artifactId>-->
+<!--        <version>1.2.12</version>-->
+<!--    </dependency>-->
+
+<!--    <dependency>-->
+<!--        <groupId>org.slf4j</groupId>-->
+<!--        <artifactId>slf4j-api</artifactId>-->
+<!--        <version>1.7.28</version>-->
+<!--    </dependency>-->
+
+<!--    <dependency>-->
+<!--        <groupId>org.slf4j</groupId>-->
+<!--        <artifactId>slf4j-log4j12</artifactId>-->
+<!--        <version>1.7.28</version>-->
+<!--    </dependency>-->
+
+</dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warSourceDirectory>web</warSourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

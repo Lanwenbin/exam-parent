@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nf.exam.dao.ScoreDao">
+
+  <!-- 系统与用户mapper分隔 -->
+  <!-- 查询所有考生成绩信息 -->
+  <select id="findUserExamInfo" resultType="com.nf.exam.entity.Score">
+		SELECT
+			score.*, users.user_name
+		FROM
+			score
+		LEFT JOIN users ON score.users_id = users.user_id
+		ORDER BY
+			users.user_id
+  </select>
+	<insert id="insertSelective" parameterType="com.nf.exam.entity.Score">
+		insert into score
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="scoreId != null">
+				score_id,
+			</if>
+			<if test="usersId != null">
+				users_id,
+			</if>
+			<if test="testpaperId != null">
+				testpaper_id,
+			</if>
+			<if test="fraction != null">
+				fraction,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="scoreId != null">
+				#{scoreId,jdbcType=INTEGER},
+			</if>
+			<if test="usersId != null">
+				#{usersId,jdbcType=VARCHAR},
+			</if>
+			<if test="testpaperId != null">
+				#{testpaperId,jdbcType=INTEGER},
+			</if>
+			<if test="fraction != null">
+				#{fraction,jdbcType=DOUBLE},
+			</if>
+		</trim>
+	</insert>
+</mapper>
