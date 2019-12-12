@@ -10,4 +10,6 @@ import com.nf.exam.entity.Users;
  */
 public interface AdminDao {
      Users findByUser(Users users);
+
+     Integer register(Users users);
 }

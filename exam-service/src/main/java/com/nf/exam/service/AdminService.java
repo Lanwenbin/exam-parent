@@ -11,4 +11,5 @@ import com.nf.exam.entity.Users;
 public interface AdminService {
 
      Users findByUser(Users users);
+     Integer register(Users users);
 }

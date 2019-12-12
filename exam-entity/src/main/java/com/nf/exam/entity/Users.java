@@ -18,7 +18,11 @@ public class Users {
 @Size(min = 2,max = 25)
     private String userPass;
 
-    private String code;
+    private String userPhone;
+
+    private  String userPortrait;
+
+//    private String code;
 
     private Integer permission;
 

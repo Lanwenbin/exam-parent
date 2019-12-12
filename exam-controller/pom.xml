@@ -93,8 +93,12 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.8.1</version>
     </dependency>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+    </dependency>
 
-<!--    &lt;!&ndash; Jakarta Taglibs是为JSP定制标签库和相关的项目提供的一个开源仓库，如TagLibraryValidator类，和对页面生成工具的扩展来支持标签库。 &ndash;&gt;-->
+    <!--    &lt;!&ndash; Jakarta Taglibs是为JSP定制标签库和相关的项目提供的一个开源仓库，如TagLibraryValidator类，和对页面生成工具的扩展来支持标签库。 &ndash;&gt;-->
 <!--    <dependency>-->
 <!--        <groupId>org.apache.taglibs</groupId>-->
 <!--        <artifactId>taglibs-standard-impl</artifactId>-->
@@ -119,6 +123,14 @@
 <!--        <artifactId>slf4j-log4j12</artifactId>-->
 <!--        <version>1.7.28</version>-->
 <!--    </dependency>-->
+
+<!--阿里云验证码-->
+    <!-- https://mvnrepository.com/artifact/com.aliyun/aliyun-java-sdk-core -->
+    <dependency>
+        <groupId>com.aliyun</groupId>
+        <artifactId>aliyun-java-sdk-core</artifactId>
+
+    </dependency>
 
 </dependencies>
 

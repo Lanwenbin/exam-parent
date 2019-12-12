@@ -1,6 +1,7 @@
 package com.nf.exam.controller;
 
 import com.nf.exam.entity.Users;
+import com.nf.exam.entity.vo.ResponseVO;
 import com.nf.exam.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 /**
  * @Author
@@ -58,6 +60,52 @@ public class AdminController {
         modelAndView.setViewName("admin/index");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/register.html",method = RequestMethod.POST)
+    public ModelAndView register() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("register");
+        return modelAndView;
+    }
+
+    @RequestMapping("/register")
+    @ResponseBody
+    public ResponseVO register(Users users, HttpSession session,Integer verifyCode){
+        try {
+            //System.out.println("loginName = " + loginName);
+            int sendVerifyCode = (int) session.getAttribute("sendVerifyCode");
+            if (verifyCode == sendVerifyCode){
+                users.setUserId(UUID());
+                users.setUserPortrait("/static/img/初始头像.jpg");
+//                users.setPermission(0);
+                  Integer users1= adminService.register(users);
+                if (users1 > 0){
+                    System.out.println("users1 = " + users1);
+
+                    session.setAttribute("customer",users);
+                    return ResponseVO.newBuilder().code("200").msg("注册成功").data(users).build();
+                }
+            }
+            return ResponseVO.newBuilder().code("500").msg("注册失败").build();
+        }catch (Exception e){
+            return ResponseVO.newBuilder().code("500").msg("注册失败").build();
+        }
+    }
+    private String UUID(){
+        //随机生成一位整数
+        int random = (int) (Math.random()*9+1);
+        String valueOf = String.valueOf(random);
+        //生成uuid的hashCode值
+        int hashCode = UUID.randomUUID().toString().hashCode();
+        //可能为负数
+        if(hashCode<0){
+            hashCode = -hashCode;
+        }
+        String value = valueOf + String.format("%015d", hashCode);
+        return value;
+    }
+
+
 
 
 }

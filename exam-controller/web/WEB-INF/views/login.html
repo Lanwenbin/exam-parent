@@ -153,16 +153,20 @@
 <!--          </div>-->
           <button id="btn-sub" class="btn btn-lg btn-primary btn-block" type="submit">登陆</button>
 
-          <div class="checkbox">
-            <a class="pull-right">帮助</a>
-          </div>
+
 
         </form>
+        <form method="post" action="register.html" class="form-login">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+        </form>
+
+        <div class="checkbox">
+          <a class="pull-right">帮助</a>
+        </div>
+
       </div>
 
-      <p >
-        <a class="xxx">XXXXX</a>
-      </p>
+
 
     </div>
 
@@ -203,8 +207,8 @@ $(document).ready(function() {
                             message: '请输入学号-工号'
                         },
                         regexp: {
-                            regexp: /^[1-9]\d{3,9}$/,
-                            message: '学号工号 3-10位数字'
+                            regexp: /^[1-9]\d{0,16}$/,
+                            message: '学号工号 16位数字'
                         }
                     }
                 },

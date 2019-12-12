@@ -22,4 +22,9 @@ private AdminDao adminDao;
         Users user =adminDao.findByUser(users);
         return user;
     }
+
+    @Override
+    public Integer register(Users users) {
+        return adminDao.register(users);
+    }
 }
