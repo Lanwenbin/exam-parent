@@ -230,6 +230,7 @@ $(document).ready(function() {
             }
         })
         .on('success.form.bv', function(e) {
+
             // Prevent form submission
             e.preventDefault();
             ajaxSubmit("/login",

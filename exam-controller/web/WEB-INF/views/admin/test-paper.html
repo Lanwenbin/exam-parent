@@ -75,14 +75,14 @@
 								<td v-text="item.testpaperName"></td>
 								<td v-text="item.startDate"></td>
 								<td v-text="item.endDate"></td>
-								<td class=".jubge" v-text="item.isStart" >
-
-									<c:choose></c:choose>
+								<td v-text="item.isStart" >
 								</td>
+
 								<td>
 									<a class="btn btn-xs" v-bind:href="'/admin/editTestPaperInfo.html?testpaperId='+item.testpaperId">修改信息</a>
 									<a class="btn btn-xs" v-bind:href="'/admin/editItemList.html?testpaperId='+item.testpaperId">增加试题</a>
 									<a class="btn btn-xs" v-bind:onclick="'deletel('+item.testpaperId+')'">删除</a>
+
 								</td>
 							</tr>
 						</tbody>
@@ -149,14 +149,7 @@
 		<script type="text/javascript" src="/static/assets/toastr-master/toastr.js"></script>
 		<script type="text/javascript" src="/static/js/common.js"></script>
 		<script>
-					$(".judge").each(function(){
-						if($(this).html()=="0"){
-							$(this).html("不可用");
-						}
-						else if($(this).html()=="1"){
-							$(this).html("可用");
-						}
-					});
+
 
 	    function deletel(testpaperId){
 	        if (confirm("是否要删除考卷 ?") == false) {

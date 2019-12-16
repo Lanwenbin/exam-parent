@@ -33,4 +33,9 @@ public class UsersServiceImpl implements UsersService {
 		return usersDao.deleteByPrimaryKey(userId);
 	}
 
+	@Override
+	public Users findUser(String userId) {
+		return usersDao.findUser(userId);
+	}
+
 }

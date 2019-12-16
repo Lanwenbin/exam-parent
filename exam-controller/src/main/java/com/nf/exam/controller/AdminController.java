@@ -42,6 +42,7 @@ public class AdminController {
         Users user = adminService.findByUser(users);
         if (user != null) {
             session.setAttribute("myUser", user);// 存SESSION
+            System.out.println("user----------------------------------------------------- = " + user);
             Integer permission = user.getPermission();// 权限 0 普通用户 1管理员
             if (permission == 1) {
                 // 跳转管理员
@@ -77,6 +78,7 @@ public class AdminController {
             if (verifyCode == sendVerifyCode){
                 users.setUserId(UUID());
                 users.setUserPortrait("/static/img/初始头像.jpg");
+//                设置初始权限
 //                users.setPermission(0);
                   Integer users1= adminService.register(users);
                 if (users1 > 0){

@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/bootstrapValidator.min.css"/>
 <script src="${pageContext.request.contextPath}/static/layer/layer.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/bootstrapValidator.min.js"></script>
+<script src="${pageContext.request.contextPath}/statxic/js/bootstrapValidator.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/template.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/css/zshop.css"/>
 
@@ -278,7 +278,6 @@
                         // var content = template('welcome', result.data);
                         // $('#navbarInfo').html(content);
 
-
                         layer.msg(result.msg, {
                             time: 1000,
                             skin: 'successMsg'
@@ -374,6 +373,7 @@
                 '${pageContext.request.contextPath}/front/customer/modifyPassword',
                 $('#frmModifyPWD').serialize(),
                 function (result) {
+
                     if (result.status == 1) {
                         console.log(result);
                         //密码修改成功，重新加载页面登录
@@ -430,7 +430,7 @@
             <ul class="nav navbar-nav">
                 <%--todo:通过jsp include 传值的方式设置active--%>
                 <li class="${param.num == 1 ? 'active' : ''}">
-                    <a href="${pageContext.request.contextPath}/front/product/searchAllProducts">商城主页</a>
+                    <a href="${pageContext.request.contextPath}/front/product/searchAllProducts">首页</a>
                 </li>
                 <li class="${param.num == 2 ? 'active' : ''}" style="cursor: pointer;">
                     <%--<a id="shopCart" onclick="showShopCarts()"  href="${pageContext.request.contextPath}/front/cart/myCarts">--%>
@@ -468,6 +468,27 @@
                     <%--TODO:否则走 otherwise 中--%>
                     <c:otherwise>
                         <li class="userName">
+                            欢迎您 : <span class="text text-success">${sessionScope.get("customer").loginName} !</span>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle user-active" data-toggle="dropdown" role="button">
+                                <img class="img-circle" src="${pageContext.request.contextPath}/static/images/user.png"
+                                     height="30"/>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#" data-toggle="modal" data-target="#modifyPasswordModal">
+                                        <i class="glyphicon glyphicon-cog"></i>修改密码
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" onclick="logout()">
+                                        <i class="glyphicon glyphicon-off"></i> 退出
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> <li class="userName">
                             欢迎您 : <span class="text text-success">${sessionScope.get("customer").loginName} !</span>
                         </li>
                         <li class="dropdown">

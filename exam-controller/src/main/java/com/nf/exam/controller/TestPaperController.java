@@ -46,6 +46,8 @@ public class TestPaperController {
     @RequestMapping(value = "/testPaper.html")
     public ModelAndView findTestPaperInfo(){
         ModelAndView modelAndView = new ModelAndView();
+//        List<TestPaper> testPapers= testPaperService.findTestPaperInfo();
+//        modelAndView.addObject("TestPaper",testPapers);
         modelAndView.setViewName("admin/test-paper");
         return modelAndView;
     }

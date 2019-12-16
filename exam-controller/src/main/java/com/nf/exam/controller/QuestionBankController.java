@@ -88,8 +88,6 @@ public class QuestionBankController {
     public boolean updateQuestionBank(@RequestBody QuestionBankVo questionBankVo, @PathVariable String id) {
         questionBankVo.setQuestionBankId(Integer.parseInt(id));
         boolean updateQuestionBank = questionBankService.updateQuestionBank(questionBankVo);
-
         return updateQuestionBank;
     }
-
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -39,6 +41,8 @@ public class UsersController {
         return modelAndView;
     }
 
+
+
     @RequestMapping(value="/userDelete",method=RequestMethod.GET)
     @ResponseBody
     public String deleteUsers(String userId){
@@ -53,5 +57,23 @@ public class UsersController {
         }
 
     }
+
+    /**
+     * 个人质量的修改
+     * @return
+     */
+    @RequestMapping(value="/personal")
+    public ModelAndView Users(HttpServletRequest request){
+        String userId =  request.getParameter("userId");
+        Users users = usersService.findUser(userId);
+        System.out.println("users = " + users);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("users", users);
+        modelAndView.setViewName("admin/user");
+        return modelAndView;
+    }
+
+
+
 
 }

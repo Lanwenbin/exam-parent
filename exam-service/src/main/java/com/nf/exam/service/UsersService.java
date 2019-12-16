@@ -14,5 +14,7 @@ public interface UsersService {
     
     //删除用户信息
    int deleteByPrimaryKey(String userId);
+//查询自己
+    Users findUser(String userId);
 
 }
