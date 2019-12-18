@@ -32,9 +32,6 @@ public class UsersController {
     @RequestMapping(value="/user.html",method= RequestMethod.GET)
     public ModelAndView AllUsers(){
         List<Users> allUsers=usersService.findUserInfo();	//2.查询页面用户数据
-//        System.out.println("---------------------");
-//        System.out.println(allUsers);
-//        System.out.println("---------------------");
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("allUsers", allUsers);
         modelAndView.setViewName("admin/user");

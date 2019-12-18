@@ -28,6 +28,25 @@
 			users
 		WHERE
 		user_id = #{userId}
+
   </select>
 
+
+    <select id="getRoles" resultType="com.nf.exam.entity.Role">
+        select r.*
+        from role r,
+             user_role ur
+        where ur.user_id = #{userId}
+          and r.id = ur.role_id
+    </select>
+    <update id="updateRole">
+        delete from user_role where user_id = ?
+    </update>
+    <delete id="deleteRolesByUserId">
+        delete from user_role where user_id = #{userId}
+    </delete>
+
+    <insert id="insertUserRole">
+        insert into user_role (user_id,role_id) values(#{userId},#{roleId})
+    </insert>
 </mapper>

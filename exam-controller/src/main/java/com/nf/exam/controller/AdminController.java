@@ -1,8 +1,10 @@
 package com.nf.exam.controller;
 
+import com.nf.exam.entity.Role;
 import com.nf.exam.entity.Users;
 import com.nf.exam.entity.vo.ResponseVO;
 import com.nf.exam.service.AdminService;
+import com.nf.exam.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,8 @@ import java.util.UUID;
 public class AdminController {
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private UsersService usersService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
@@ -40,8 +44,10 @@ public class AdminController {
 //            return "0";
 //        }
         Users user = adminService.findByUser(users);
+        Role role = usersService.getRoles(users.getUserId());
         if (user != null) {
             session.setAttribute("myUser", user);// 存SESSION
+            session.setAttribute("myUserRole", role);
             System.out.println("user----------------------------------------------------- = " + user);
             Integer permission = user.getPermission();// 权限 0 普通用户 1管理员
             if (permission == 1) {
