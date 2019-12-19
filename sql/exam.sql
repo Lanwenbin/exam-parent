@@ -12,7 +12,6 @@ CREATE TABLE `options` (
   `question_bank_id` int(11) NOT NULL,
   PRIMARY KEY (`options_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8;
-
 -- ----------------------------
 -- Records of options
 -- ----------------------------

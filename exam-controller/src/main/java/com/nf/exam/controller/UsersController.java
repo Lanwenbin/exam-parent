@@ -56,7 +56,7 @@ public class UsersController {
     }
 
     /**
-     * 个人质量的修改
+     * 个人资料的修改
      * @return
      */
     @RequestMapping(value="/personal")

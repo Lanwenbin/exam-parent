@@ -11,9 +11,10 @@
 <!-- Bootstrap -->
 <link href="/static/assets/yeti/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/static/css/style.css" />
-<link rel="stylesheet" href="/static/css/quanju.css" />
 <link href="/static/css/jquery.dataTables.min.css" rel="stylesheet"/>
 <link href="/static/assets/data-tables/DT_bootstrap.css"/>
+
+	<script src="/static/js/personal.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +25,7 @@
 </head>
 <style>
   .backs{
-  
+
   background: url(/static/img/backs1.jpg);
   background-size:100%;
   }
@@ -41,12 +42,12 @@
 <@sidbarTemplet.header />
 
 	<div class="container-fluid">
-		<div class="col-xs-2 sidebar box">
+		<div class="col-xs-2 sidebar box" style="margin:18px 0px 0px 0px;">
 			<ul class="nav nav-sidebar">
 				<@sidbarTemplet.sidbar "user.html" />
 			</ul>
 		</div>
-		<div class="col-xs-10 col-xs-offset-2 content" id="content">
+		<div class="col-xs-10 col-xs-offset-2 content" id="content" style="margin:48px 0px 0px 0px;">
 			<!--content-->
 
 			<div class="panel panel-primary box pad">
@@ -88,6 +89,7 @@
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="/static/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/static/assets/vue/vue.js"></script>
@@ -97,11 +99,11 @@
 		<script type="text/javascript" src="/static/assets/data-tables/DT_bootstrap.js"></script>
 		<script class="include" type="text/javascript" src="/static/js/jquery.dcjqaccordion.2.7.js"></script>
    <script>
-   jQuery(document).ready(function() {   
+   jQuery(document).ready(function() {
        var a = EditableTable.init();
    });
 
-   
+
     function delete1(userId){
         if (confirm("是否要删除?") == false) {
             return;
@@ -110,14 +112,14 @@
            	url:"/admin/userDelete",
                data:{"userId":userId},
                contentType: "application/json",
-               dataType: "json",  
+               dataType: "json",
                type: "GET",
-               traditional: true,  
+               traditional: true,
                success: function (data) {
             	   alert("删除成功!");
             	   var idObject = document.getElementById(userId);
-            	   idObject.parentNode.removeChild(idObject);     
-               } 
+            	   idObject.parentNode.removeChild(idObject);
+               }
            });
     }
     </script>
