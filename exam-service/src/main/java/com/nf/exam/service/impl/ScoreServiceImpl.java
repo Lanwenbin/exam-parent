@@ -15,6 +15,7 @@ public class ScoreServiceImpl implements ScoreService {
 	private ScoreDao scoreDao;
 	@Override
 	public List<ScoreVo> findUserExamInfo() {
+		System.out.println("scoreDao = " + scoreDao.findUserExamInfo());
 		return scoreDao.findUserExamInfo();
 	}
 

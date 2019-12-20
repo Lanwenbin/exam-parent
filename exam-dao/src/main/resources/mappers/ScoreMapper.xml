@@ -4,9 +4,9 @@
 
   <!-- 系统与用户mapper分隔 -->
   <!-- 查询所有考生成绩信息 -->
-  <select id="findUserExamInfo" resultType="com.nf.exam.entity.Score">
+  <select id="findUserExamInfo" resultType="com.nf.exam.entity.vo.ScoreVo">
 		SELECT
-			score.*, users.user_name
+			score.*,users.user_name
 		FROM
 			score
 		LEFT JOIN users ON score.users_id = users.user_id

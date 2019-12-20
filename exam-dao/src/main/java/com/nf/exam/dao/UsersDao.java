@@ -16,6 +16,8 @@ public interface UsersDao {
 
     List<Users>findUserInfo();
 
+    List<Users>findStudentInfo();
+
     int deleteByPrimaryKey(String userId);
 
     Users findUser(String userId);

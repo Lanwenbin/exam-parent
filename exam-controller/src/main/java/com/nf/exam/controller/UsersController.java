@@ -38,6 +38,15 @@ public class UsersController {
         return modelAndView;
     }
 
+    @RequestMapping(value="/student.html",method= RequestMethod.GET)
+    public ModelAndView AllStudent(){
+        List<Users> allUsers=usersService.findStudentInfo();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("allUsers", allUsers);
+        modelAndView.setViewName("admin/student");
+        return modelAndView;
+    }
+
 
 
     @RequestMapping(value="/userDelete",method=RequestMethod.GET)
@@ -60,12 +69,26 @@ public class UsersController {
      * @return
      */
     @RequestMapping(value="/personal")
-    public ModelAndView Users(HttpServletRequest request){
+    public ModelAndView Personal(HttpServletRequest request){
         String userId =  request.getParameter("userId");
         Users users = usersService.findUser(userId);
         System.out.println("users = " + users);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("users", users);
+        modelAndView.setViewName("admin/");
+        return modelAndView;
+    }
+
+    /**
+     * 个人资料的修改
+     * @return
+     */
+    @RequestMapping(value="/upload",method = RequestMethod.POST)
+    public ModelAndView Upload(HttpServletRequest request){
+        System.out.println("request = " + request);
+        ModelAndView modelAndView = new ModelAndView();
+        System.out.println("modelAndView ==================== " + modelAndView);
+        modelAndView.addObject("users", 1);
         modelAndView.setViewName("admin/user");
         return modelAndView;
     }

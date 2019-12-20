@@ -11,7 +11,7 @@ import com.nf.exam.entity.vo.QuestionBankVo;
  */
 public interface QuestionBankService {
     //查询所有试题
-    public PageInfo<QuestionBankVo> findAllQuestionBank(PageInfo<QuestionBankVo> pageInfo);
+    public PageInfo<QuestionBankVo> findAllQuestionBankById(PageInfo<QuestionBankVo> pageInfo,Integer testsType);
 
     //添加题
     public boolean addQuestionBank(QuestionBankVo questionBankVo);

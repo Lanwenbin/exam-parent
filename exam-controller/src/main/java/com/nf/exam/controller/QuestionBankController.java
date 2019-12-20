@@ -33,6 +33,14 @@ public class QuestionBankController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/judge-bank.html")
+    public ModelAndView judgeBank() {
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("admin/judge-bank");
+        return modelAndView;
+    }
+
     /**
      * 获取所有实体
      * 因为返回json类型，所以加@ResponseBody
@@ -43,10 +51,26 @@ public class QuestionBankController {
     public PageInfo<QuestionBankVo> getAllQuestionBank(@RequestBody PageInfo<QuestionBankVo> pageInfo) {
 
 
-        PageInfo<QuestionBankVo> findAllQuestionBank = questionBankService.findAllQuestionBank(pageInfo);
+        PageInfo<QuestionBankVo> findAllQuestionBank = questionBankService.findAllQuestionBankById(pageInfo,1);
 
         return findAllQuestionBank;
     }
+
+    /**
+     * 获取所有实体
+     * 因为返回json类型，所以加@ResponseBody
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getAllJudgeBank")
+    public PageInfo<QuestionBankVo> getAllJudgeBank(@RequestBody PageInfo<QuestionBankVo> pageInfo) {
+
+
+        PageInfo<QuestionBankVo> findAllQuestionBank = questionBankService.findAllQuestionBankById(pageInfo,0);
+
+        return findAllQuestionBank;
+    }
+
     /**
      * 添加题目
      * @return

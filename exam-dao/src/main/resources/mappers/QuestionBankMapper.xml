@@ -16,7 +16,28 @@
 	</resultMap>
 	
 	<!-- 查询所有题库 -->
-	<select id="findAllQuestionBank" resultMap="QuestionBankVoMap">
+	<select id="findAllQuestionBankById" parameterType="Integer" resultMap="QuestionBankVoMap">
+		SELECT
+			question_bank.question_bank_id,
+			question_bank.stem,
+			question_bank.answer,
+			question_bank.tests_type,
+			question_bank.state,
+			`options`.options_id,
+			`options`.op,
+			`options`.content
+		FROM
+			`question_bank`
+		LEFT JOIN `options` ON question_bank.question_bank_id = `options`.question_bank_id
+		WHERE
+			question_bank.state = 1 and question_bank.tests_type = #{testsType}
+		ORDER BY
+			question_bank_id ASC
+	</select>
+
+
+	<!-- 查询所有题库 -->
+	<select id="findAllQuestionBank"  resultMap="QuestionBankVoMap">
 		SELECT
 			question_bank.question_bank_id,
 			question_bank.stem,
@@ -32,8 +53,10 @@
 		WHERE
 			question_bank.state = 1
 		ORDER BY
-			question_bank_id ASC		
+			question_bank_id ASC
 	</select>
+
+
 	
 	<!-- 添加题库 -->
 	<insert id="addQuestionBank" parameterType="com.nf.exam.entity.vo.QuestionBankVo" useGeneratedKeys="true" keyProperty="questionBankId">

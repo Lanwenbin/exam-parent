@@ -12,6 +12,8 @@ import java.util.List;
 public interface UsersService {
     //查询所有用户
     List<Users> findUserInfo();
+    //查询所有学生
+    List<Users> findStudentInfo();
     
     //删除用户信息
    int deleteByPrimaryKey(String userId);

@@ -38,6 +38,9 @@ public class ExamController {
     @RequestMapping(value = "/exam-{id}.html", method = RequestMethod.GET)
     public ModelAndView exam(@PathVariable String id, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
+
+
+
         examService.findJudgmentQuestionAndChoiceQuestion(modelAndView, id, session);
         return modelAndView;
     }

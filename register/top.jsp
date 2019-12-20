@@ -363,6 +363,7 @@
     }
 
     /*用户修改密码*/
+    
     function modifyPassword() {
         //启动校验
         $('#frmModifyPWD').data('bootstrapValidator').validate();

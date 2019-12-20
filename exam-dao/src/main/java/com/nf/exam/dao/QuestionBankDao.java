@@ -14,6 +14,8 @@ import java.util.List;
 public interface QuestionBankDao {
     //查询所有题库
     public List<QuestionBankVo> findAllQuestionBank();
+    public List<QuestionBankVo> findAllQuestionBankById(Integer testsType);
+
 
     //添加题目
     public int addQuestionBank(QuestionBankVo questionBankVo);

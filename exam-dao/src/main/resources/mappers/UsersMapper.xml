@@ -7,6 +7,16 @@
 			*
 		FROM
 			users
+			where permission=1
+		ORDER BY
+			user_id
+  </select>
+    <select id="findStudentInfo" resultType="com.nf.exam.entity.Users">
+		SELECT
+			*
+		FROM
+			users
+			where permission=0
 		ORDER BY
 			user_id
   </select>
@@ -21,7 +31,8 @@
             user_name,
             user_pass,
             user_phone,
-            user_portrait
+            user_portrait,
+            permission
 		FROM
 			users
 		WHERE

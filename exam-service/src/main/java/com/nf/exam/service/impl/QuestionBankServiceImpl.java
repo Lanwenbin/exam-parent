@@ -29,11 +29,16 @@ public class QuestionBankServiceImpl implements QuestionBankService {
      * @return
      */
     @Override
-    public PageInfo<QuestionBankVo> findAllQuestionBank(PageInfo<QuestionBankVo> pageInfo) {
+    public PageInfo<QuestionBankVo> findAllQuestionBankById(PageInfo<QuestionBankVo> pageInfo,Integer testsType) {
         //初始化分页
-        PageHelper.startPage(pageInfo.getPageNum()==0?1:pageInfo.getPageNum(), 40);
+        if (testsType == 1) {
+            PageHelper.startPage(pageInfo.getPageNum() == 0 ? 1 : pageInfo.getPageNum(), 20);
+        }
+        else if (testsType ==0){
+            PageHelper.startPage(pageInfo.getPageNum() == 0 ? 1 : pageInfo.getPageNum(), 10);
+        }
 
-        List<QuestionBankVo> AllQuestionBank = questionBankDao.findAllQuestionBank();
+        List<QuestionBankVo> AllQuestionBank = questionBankDao.findAllQuestionBankById(testsType);
             //限制条数
         PageInfo<QuestionBankVo> pageInfoQuestionBank = new PageInfo<QuestionBankVo>(AllQuestionBank);
 

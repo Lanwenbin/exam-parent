@@ -22,11 +22,14 @@ public class UsersServiceImpl implements UsersService {
 	//2.2查询用户数据 实现
 	@Override
 	public List<Users> findUserInfo() {
-		
-		//2.3查询用户数据Dao（数据持久层）
 		List<Users> findUserInfo = usersDao.findUserInfo();
 		
 		return findUserInfo;
+	}
+
+	@Override
+	public List<Users> findStudentInfo() {
+		return usersDao.findStudentInfo();
 	}
 
 	@Override

@@ -82,9 +82,9 @@ public class ExamServiceImpl implements ExamService {
         Times ifExamTimes = examDao.findExamTimes(times);
         //如果考试时间未设置则进行设置
         if (ifExamTimes == null){
-            times.setDataMin(60.0);
+            times.setDataMin(3.0);
             examDao.addExamTimes(times);
-            session.setAttribute("ExamTime","60");
+            session.setAttribute("ExamTime","3");
         } else {
             session.setAttribute("ExamTime", String.valueOf(ifExamTimes.getDataMin().intValue()));
         }

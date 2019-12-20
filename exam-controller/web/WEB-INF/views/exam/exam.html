@@ -58,7 +58,7 @@
 <!--header-->
 		<section class="header">
 			<div class="ziti" id="ziti">
-				卷一   
+				开始考试
 			</div>
 		</section>
 <!--判断题-->
@@ -127,7 +127,7 @@
   <button data-remodal-action="confirm" class="remodal-confirm" id="testpaper">提交</button>
 </div>
 
-<div class="remodal" data-remodal-id="modal-score" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+<div class="remodal" data-remodal-id="modal-score" role="dialog" aria-labelledby="modal1Title1" aria-describedby="modal1Desc">
   <button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
   <div>
     <h2 id="modal1Title">考试成绩 <span id="score">0</span>分</h2>
@@ -224,7 +224,7 @@ var timeSetInterval = setInterval(function() {
 		submitPapers(arr);
 		clearInterval(timeSetInterval);
 	}
-},1000*60);
+},1000*30);
 </script>
 	</body>
 </html>

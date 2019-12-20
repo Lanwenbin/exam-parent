@@ -85,11 +85,10 @@ public class AdminController {
                 users.setUserId(UUID());
                 users.setUserPortrait("/static/img/初始头像.jpg");
 //                设置初始权限
-//                users.setPermission(0);
+                users.setPermission(0);
                   Integer users1= adminService.register(users);
                 if (users1 > 0){
                     System.out.println("users1 = " + users1);
-
                     session.setAttribute("customer",users);
                     return ResponseVO.newBuilder().code("200").msg("注册成功").data(users).build();
                 }
