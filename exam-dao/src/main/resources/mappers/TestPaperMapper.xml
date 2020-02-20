@@ -15,13 +15,13 @@
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from testpaper
-    where testpaper_id = #{testpaperId,jdbcType=INTEGER}
+    where testpaper_id = #{testpaperId}
   </delete>
   <insert id="insert" parameterType="com.nf.exam.entity.TestPaper">
     insert into testpaper (testpaper_id, testpaper_name, testpaper_state, 
       start_date, end_date)
-    values (#{testpaperId,jdbcType=INTEGER}, #{testpaperName,jdbcType=VARCHAR}, #{testpaperState,jdbcType=INTEGER}, 
-      #{startDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP})
+    values (#{testpaperId}, #{testpaperName}, #{testpaperState},
+      #{startDate}, #{endDate})
   </insert>
 
     <insert id="insertSelective" parameterType="com.nf.exam.entity.TestPaper">
@@ -45,19 +45,19 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="testpaperId != null">
-                #{testpaperId,jdbcType=INTEGER},
+                #{testpaperId},
             </if>
             <if test="testpaperName != null">
-                #{testpaperName,jdbcType=VARCHAR},
+                #{testpaperName},
             </if>
             <if test="testpaperState != null">
-                #{testpaperState,jdbcType=INTEGER},
+                #{testpaperState},
             </if>
             <if test="startDate != null">
-                #{startDate,jdbcType=TIMESTAMP},
+                #{startDate},
             </if>
             <if test="endDate != null">
-                #{endDate,jdbcType=TIMESTAMP},
+                #{endDate},
             </if>
         </trim>
     </insert>
@@ -78,7 +78,7 @@
         select
         <include refid="Base_Column_List" />
         from testpaper
-        where testpaper_id = #{testpaperId,jdbcType=INTEGER}
+        where testpaper_id = #{testpaperId}
     </select>
   
   <!-- 更新书卷状态  即前端页面执行的删除试卷操作 -->
@@ -86,16 +86,16 @@
 		  UPDATE testpaper
 		SET testpaper.testpaper_state = 0
 		WHERE
-			testpaper.testpaper_id = #{id,jdbcType=INTEGER}
+			testpaper.testpaper_id = #{id}
   </update>
   
   <update id="updateTestPaperInfo" parameterType="com.nf.exam.entity.TestPaper">
 		  	UPDATE testpaper
-		SET testpaper.testpaper_name =#{testpaperName,jdbcType=VARCHAR},
-				testpaper.start_date =#{startDate,jdbcType=TIMESTAMP},
-				testpaper.end_date =#{endDate,jdbcType=TIMESTAMP}
+		SET testpaper.testpaper_name =#{testpaperName},
+				testpaper.start_date =#{startDate},
+				testpaper.end_date =#{endDate}
 		WHERE
-			testpaper.testpaper_id =#{testpaperId,jdbcType=INTEGER}
+			testpaper.testpaper_id =#{testpaperId}
   
   </update>
   

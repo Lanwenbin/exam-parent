@@ -31,16 +31,16 @@
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="scoreId != null">
-				#{scoreId,jdbcType=INTEGER},
+				#{scoreId},
 			</if>
 			<if test="usersId != null">
-				#{usersId,jdbcType=VARCHAR},
+				#{usersId},
 			</if>
 			<if test="testpaperId != null">
-				#{testpaperId,jdbcType=INTEGER},
+				#{testpaperId},
 			</if>
 			<if test="fraction != null">
-				#{fraction,jdbcType=DOUBLE},
+				#{fraction},
 			</if>
 		</trim>
 	</insert>

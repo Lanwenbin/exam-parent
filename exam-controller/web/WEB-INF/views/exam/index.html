@@ -87,6 +87,8 @@
 				选择试卷
 			</div>
 		</section>
+
+		<a  class="pull-right"  onclick="javascript:history.back(-1);">返回</a>
 <!--判断题-->
 		<section class="container" style="margin-top: 93px; padding: 0 65px 0 3px;">
 			
@@ -95,7 +97,7 @@
 				 	<div class="box">
 				 		<p class="box-title">${item.testpaperName}</p>
 				 		<span class="box-date">考试时间: ${item.startDate?substring(0,16)} - ${item.endDate?substring(0,16)}</span>
-				 		<h4 class="time">时间 : <span class="badge" style="background: grey; font-size: 15px">60</span> 分钟</h4>
+				 		<h4 class="time">时间 : <span class="badge" style="background: grey; font-size: 15px">30</span> 分钟</h4>
 				 		<div class="clearfix"></div>
 				 		<button class="btn btn-info center-block" onclick="select(${item.testpaperId})">选择题目考试</button>
 				 		<div class="clearfix" id="btn"></div>

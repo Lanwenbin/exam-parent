@@ -39,6 +39,14 @@
 		user_id = #{userId}
 
   </select>
+    <update id="updateUser" parameterType="com.nf.exam.entity.Users">
+        update users set user_pass = #{userPass}
+        <if test="user_portrait != null">
+            ,user_portrait = #{userPortrait}
+        </if>
+
+        where user_id = #{userId}
+    </update>
 
 
     <select id="getRoles" resultType="com.nf.exam.entity.Role">

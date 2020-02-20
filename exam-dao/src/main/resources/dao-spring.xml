@@ -15,6 +15,7 @@
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
         <property name="mapperLocations" value="classpath:mappers/**/*.xml"/>
@@ -29,7 +30,6 @@
                         </props>
                     </property>
                 </bean>
-
             </list>
         </property>
 
@@ -40,6 +40,6 @@
             </bean>
         </property>
     </bean>
-
+<!--为接口生成代理类-->
     <mybatis:scan base-package="com.nf.exam.dao"/>
 </beans>

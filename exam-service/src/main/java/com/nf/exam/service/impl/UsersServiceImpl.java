@@ -3,6 +3,7 @@ package com.nf.exam.service.impl;
 import com.nf.exam.dao.UsersDao;
 import com.nf.exam.entity.Role;
 import com.nf.exam.entity.Users;
+import com.nf.exam.entity.vo.UsersVO;
 import com.nf.exam.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,15 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public void insertUserRole(String userId, String roleId) {
 
+	}
+
+	@Override
+	public boolean updateUser(Users users) {
+		int rows = usersDao.updateUser(users);
+		if (rows > 0){
+			return  true;
+		}
+		return false;
 	}
 
 

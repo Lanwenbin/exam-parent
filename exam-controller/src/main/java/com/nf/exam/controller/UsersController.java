@@ -1,16 +1,24 @@
 package com.nf.exam.controller;
 
 import com.nf.exam.entity.Users;
+import com.nf.exam.entity.vo.ResponseVO;
+import com.nf.exam.entity.vo.UsersVO;
 import com.nf.exam.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -52,10 +60,7 @@ public class UsersController {
     @RequestMapping(value="/userDelete",method=RequestMethod.GET)
     @ResponseBody
     public String deleteUsers(String userId){
-        System.out.println("---------------------");
         int i=usersService.deleteByPrimaryKey(userId);
-        System.out.println("---------------------");
-        System.out.println(i);
         if(i>=1){
             return "1";
         }else{
@@ -68,15 +73,39 @@ public class UsersController {
      * 个人资料的修改
      * @return
      */
-    @RequestMapping(value="/personal")
-    public ModelAndView Personal(HttpServletRequest request){
-        String userId =  request.getParameter("userId");
-        Users users = usersService.findUser(userId);
-        System.out.println("users = " + users);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("users", users);
-        modelAndView.setViewName("admin/");
-        return modelAndView;
+    @RequestMapping("/personal")
+    @ResponseBody
+    public ResponseVO Personal(@RequestBody UsersVO usersVO){
+        System.out.println("usersVO = "+usersVO);
+       /* Users users = null;
+        Users users1 = (Users) session.getAttribute("myUsers");
+        if (usersVO.getFinalImg() == null){
+            users = new Users(usersVO.getUserPass(),users1.getUserId());
+            if (usersService.updateUser(users)){
+                return ResponseVO.newBuilder().code("200").msg("修改成功").build();
+            }else {
+                return ResponseVO.newBuilder().code("500").msg("修改失败").build();
+            }
+        }else {
+            String filePath = "C:\\Users\\小怪兽\\Desktop\\论文\\exam-parent\\exam-controller\\src\\main\\resources\\static\\img";
+            String filename = usersVO.getFinalImg().getOriginalFilename();
+            String path = filePath + File.separator + filename;
+
+            String newFile = "/static/img/" + filename;
+            File file = new File(path);
+            try {
+                usersVO.getFinalImg().transferTo(file);
+                users = new Users(usersVO.getUserPass(),newFile,users1.getUserId());
+                usersService.updateUser(users);
+                session.setAttribute("myUsers",users);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return ResponseVO.newBuilder().code("500").msg("修改失败").build();
+            }
+            return ResponseVO.newBuilder().code("200").msg("修改成功").build();
+        }
+*/
+        return ResponseVO.newBuilder().code("200").msg("修改成功").build();
     }
 
     /**
@@ -85,15 +114,11 @@ public class UsersController {
      */
     @RequestMapping(value="/upload",method = RequestMethod.POST)
     public ModelAndView Upload(HttpServletRequest request){
-        System.out.println("request = " + request);
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println("modelAndView ==================== " + modelAndView);
         modelAndView.addObject("users", 1);
         modelAndView.setViewName("admin/user");
         return modelAndView;
     }
-
-
 
 
 }

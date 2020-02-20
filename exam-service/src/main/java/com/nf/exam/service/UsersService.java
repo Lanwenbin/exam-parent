@@ -2,6 +2,7 @@ package com.nf.exam.service;
 
 import com.nf.exam.entity.Role;
 import com.nf.exam.entity.Users;
+import com.nf.exam.entity.vo.UsersVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -30,5 +31,5 @@ public interface UsersService {
     //添加用户的角色
     void insertUserRole(@Param("userId") String userId, @Param("roleId") String roleId);
 
-
+    boolean updateUser(Users users);
 }

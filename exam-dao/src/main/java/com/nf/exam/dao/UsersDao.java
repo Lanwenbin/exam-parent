@@ -2,6 +2,7 @@ package com.nf.exam.dao;
 
 import com.nf.exam.entity.Role;
 import com.nf.exam.entity.Users;
+import com.nf.exam.entity.vo.UsersVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -30,5 +31,7 @@ public interface UsersDao {
     void deleteRolesByUserId(String userId);
     //添加用户的角色
     void insertUserRole(@Param("userId") String userId, @Param("roleId") String roleId);
+
+    int updateUser(Users users);
 
 }

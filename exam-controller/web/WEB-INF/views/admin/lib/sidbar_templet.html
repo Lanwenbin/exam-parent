@@ -1,6 +1,6 @@
 <#macro sidbar urlName>
 
-<script type="text/javascript" src="/static/js/jquery-1.10.2.min.js" ></script>
+<script type="text/javascript" src="/static/js/jquery-3.3.1.min.js" ></script>
 <script type="text/javascript" src="/static/js/personal.js" ></script>
 <script type="text/javascript" src="/static/js/img-cropping.js" ></script>
 <script>
@@ -30,6 +30,8 @@
 
 		}
 
+
+
 		var generateMenu = function (data) {
 			for (var i = 0; i < data.length; i++) {
 				var menuItemData = data[i];
@@ -54,6 +56,8 @@
 			generateMenu(buildTree(result, 0));
 		});
 	});
+
+
 </script>
 
 
@@ -93,7 +97,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="/admin/personal?userId=${myUser.userId}" data-toggle="modal" data-target="#modifyPasswordModal">
+							<a href="#" data-toggle="modal" data-target="#modifyPasswordModal">
 								修改个人信息
 							</a>
 						</li>
@@ -120,7 +124,7 @@
 				</button>
 				<h4 class="modal-title" id="modifyPWD">修改个人信息</h4>
 			</div>
-			<form id="frmModifyPWD" class="form-horizontal">
+			<form id="frmModifyPWD" class="form-horizontal" >
 				<div class="modal-body">
 					<div class="form-group">
 						<label class="col-sm-3 control-label">原密码：</label>
@@ -131,7 +135,7 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">新密码：</label>
 						<div class="col-sm-6">
-							<input class="form-control" type="password" name="newpassword">
+							<input class="form-control" type="password" name="userPass" id="userPass">
 						</div>
 					</div>
 					<div class="form-group">

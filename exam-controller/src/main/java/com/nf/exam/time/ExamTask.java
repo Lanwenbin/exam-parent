@@ -5,6 +5,9 @@ import com.nf.exam.dao.ScoreDao;
 import com.nf.exam.entity.Score;
 import com.nf.exam.entity.Times;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
@@ -14,6 +17,7 @@ import java.util.List;
  * @Description TODO
  * @Date 2019/12/9 19:29
  */
+@Component
 public class ExamTask {
 
     @Autowired
@@ -24,6 +28,7 @@ public class ExamTask {
     /**
      * 更新考试时间
      */
+    @Scheduled(cron = "*/60 * * * * ?")
     public void updateTime() {
         //所有用户时间
         List<Times> allExamTimes = examDao.findAllExamTimes();
